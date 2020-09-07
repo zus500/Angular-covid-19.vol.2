@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.datesservice.getGlobaData().subscribe({
       next: (result) => {
-        console.log(result);
+        // console.log(result);
       }
     });
   }
