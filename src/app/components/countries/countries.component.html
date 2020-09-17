@@ -1,7 +1,14 @@
 <div class="jumbotron bg-white text-center">
     <h1 class="display-4">Corona Covid-19 Tracker County Wice</h1>
     <hr>
-    <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit sit dolorum culpa eveniet esse odio magnam praesentium porro voluptas, fugit accusantium eligendi, aliquid commodi aut, voluptatibus animi consectetur soluta. Modi?</p>
-    <hr class="my-4">
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium voluptatum iusto reprehenderit accusamus consequatur obcaecati praesentium, repellendus odio possimus harum beatae voluptas inventore odit amet modi quam ratione cumque aperiam.</p>
+        <div class = "mx-auto">
+            <div class="form-group col-lg-5 mx-auto">
+                <label for="c">Select Country</label>
+                <select name="" class = "form-control  " id="">
+                    <option value="" *ngFor =" let con of countries " class ="countries"> {{con}}</option>
+
+
+                </select>
+            </div>
+        </div>
 </div>

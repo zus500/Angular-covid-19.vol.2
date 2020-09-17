@@ -2,25 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators'
 import { GlobalDataSummary } from '../model/global-data';
+import { getdatenow } from '../components/function/GetDateNow';
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
 
-  private  url ="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/08-25-2020.csv";
-
+  private  notFullUrl ="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/";
+  private  doMain = ".csv" 
+  private date =getdatenow() ;
+  private fullUrl = this.notFullUrl + this.date + this.doMain;
 
   constructor( private http: HttpClient) { }
 
-
+   
+  
   getGlobaData(){
-   return this.http.get(this.url , {responseType : 'text'}).pipe(
+    console.log(getdatenow());
+   return this.http.get(this.fullUrl , {responseType : 'text'}).pipe(
+     
     map(result => {
       let data: GlobalDataSummary[] = [];
       let raw = {};
       let rows = result.split('\n');
       rows.splice(0 ,1);
-      // console.log(rows);
       rows.forEach(row => {
             let cols = row.split(/,(?=\S)/)
             let cs = {
@@ -43,7 +48,6 @@ export class DataServiceService {
             raw[cs.country] = cs;
           }
       })
-
       return <GlobalDataSummary[]>Object.values(raw);
     })
    );
