@@ -18,11 +18,9 @@ export class DataServiceService {
    
   
   getGlobaData(){
-    console.log(getdatenow());
    return this.http.get(this.fullUrl , {responseType : 'text'}).pipe(
      
     map(result => {
-      let data: GlobalDataSummary[] = [];
       let raw = {};
       let rows = result.split('\n');
       rows.splice(0 ,1);
@@ -35,9 +33,9 @@ export class DataServiceService {
               recovered: +cols[9],
               active: +cols[10]
             } 
+
           let temp: GlobalDataSummary = raw[cs.country];
           if(temp){
-            temp.country = cs.country + temp.country;
             temp.confirmed = cs.confirmed + temp.confirmed;
             temp.deaths = cs.deaths + temp.deaths;
             temp.recovered = cs.recovered + temp.recovered;

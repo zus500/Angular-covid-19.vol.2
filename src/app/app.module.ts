@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
-import { CountriesComponent } from './components/countries/countries.component'
+import { CountriesComponent } from './components/countries/countries.component';
+import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component'
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CountriesComponent } from './components/countries/countries.component'
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    CountriesComponent
+    CountriesComponent,
+    DashboardCardComponent
   ],
   imports: [
     BrowserModule,

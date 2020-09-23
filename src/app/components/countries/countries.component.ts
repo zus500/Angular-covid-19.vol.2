@@ -12,12 +12,22 @@ export class CountriesComponent implements OnInit {
   
   countries :String[] =[]
   
+  totalConfirmed = 0;
+  totalActive = 0;
+  totalDeaths = 0;
+  totalRecovered = 0;
+
   ngOnInit(): void {
     this.datesservice.getGlobaData().subscribe(result =>{
       result.forEach(cs => {
           this.countries.push(cs.country);
       })
     });
+  }
+
+  updateValues(countru: string){
+    console.log(countru);
+
   }
 
 }
